@@ -4,7 +4,7 @@ import { SearchIcon } from "@heroicons/react/outline";
 
 export default function Header() {
   return (
-    <header className="sticky top-0">
+    <header className="sticky top-0 z-50">
 
       {/* top navbar */}
       <div className="flex items-center justify-between bg-red-900 px-2">
@@ -16,7 +16,7 @@ export default function Header() {
             className="flex text-yellow-500 cursor-pointer text-sm sm:text-xl items-center font-bold space-x-2 whitespace-nowrap"
           >
             <img
-              src="./logo.png"
+              src="./img/logo.png"
               alt="Food logo"
               width={60}
               height={40}
