@@ -5,7 +5,9 @@ export default function Home() {
     return (
         <div>
         <Header />
-            <h1>HELLO REACT</h1>
+        <main>
+            
+        </main>
         </div>
     )
 }

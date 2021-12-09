@@ -1,50 +1,67 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { SearchIcon } from "@heroicons/react/outline";
 
 export default function Header() {
   return (
-    <header>
+    <header className="sticky top-0">
+
       {/* top navbar */}
-      <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
+      <div className="flex items-center justify-between bg-red-900 px-2">
+
         {/* left elements */}
-        <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
-          <Link to="/home">
+        <div className="flex items-center">
+          <Link
+            to="/home"
+            className="flex text-yellow-500 cursor-pointer text-sm sm:text-xl items-center font-bold space-x-2 whitespace-nowrap"
+          >
             <img
-              src="https://w7.pngwing.com/pngs/1013/530/png-transparent-cafe-italian-cuisine-breakfast-menu-eat-food-logo-eating.png"
+              src="./logo.png"
               alt="Food logo"
-              width={150}
+              width={60}
               height={40}
               objectFit="contain"
-              className="cursor-pointer"
             />
             <div>
-              <h2>My Recipe Library</h2>
+              <h1>My Recipe Library</h1>
             </div>
           </Link>
         </div>
+
+        {/* search */}
+        <div className="bg-yellow-400 hover:bg-yellow-500 hidden flex-grow mx-10 max-w-lg sm:flex items-center h-10 rounded-lg cursor-pointer">
+          <input
+            className="p-2 h-full w-6 flex-grow rounded-l-lg flex-shrink focus:outline-none px-4"
+            type="text"
+            placeholder="Dish Name"
+          />
+          <SearchIcon className="h-12 p-4" />
+        </div>
+
         {/* right elements */}
-        <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div className="link">
+        <div className="text-gray-200 flex items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
+          <div className="cursor-pointer">
             <p>Favorites</p>
-            <p className="font-extrabold md:text-sm">Recipes</p>
+            <p className="font-bold sm:text-sm">Recipes</p>
           </div>
-          <div className="link">
+          <div className="cursor-pointer">
             <p>SignIn</p>
-            <p className="font-extrabold md:text-sm">LogIn</p>
+            <p className="font-bold sm:text-sm">LogIn</p>
           </div>
         </div>
       </div>
+
       {/* botton navbar */}
-      <div className="flex items-center space-x-3 p-2 pl-6 bg-amazon_blue-light text-white text-sm">
-        <p className="link">American</p>
-        <p className="link">Chinese</p>
-        <p className="link">Thay</p>
-        <p className="link hidden lg:inline-flex">Italian</p>
-        <p className="link hidden lg:inline-flex">Espanish</p>
-        <p className="link hidden lg:inline-flex">Brazilian</p>
-        <p className="link hidden lg:inline-flex">Japanese</p>
-        <p className="link hidden lg:inline-flex">Turkish</p>
-        <p className="link hidden lg:inline-flex">Others</p>
+      <div className="flex justify-between items-center overflow-scroll scrollbar-hide space-x-3 pl-2 py-2 bg-red-700 text-gray-300 text-xs sm:text-sm flex-grow">
+        <p className="typesCousine">American</p>
+        <p className="typesCousine">Chinese</p>
+        <p className="typesCousine">Thay</p>
+        <p className="typesCousine">Italian</p>
+        <p className="typesCousine">Espanish</p>
+        <p className="typesCousine">Brazilian</p>
+        <p className="typesCousine">Japanese</p>
+        <p className="typesCousine">Turkish</p>
+        <p className="typesCousine">Others</p>
       </div>
     </header>
   );
