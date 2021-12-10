@@ -71,7 +71,7 @@ export default function VerticalMenuBar() {
   ];
 
   return (
-    <div className="w-36 h-screen m-3 rounded-lg p-2 shadow-2xl space-y-2 overflow-scroll scrollbar-hide">
+    <div className="w-36 min-h-full rounded-lg p-2 shadow-2xl space-y-2 overflow-scroll scrollbar-hide">
 
       <div className="border-b-2">
       <div
