@@ -8,11 +8,13 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <main className="flex max-x-7xl mx-auto px">
+      <main className="flex max-w-7xl mx-auto px-8 sm:px-16">
+      <div className="hidden sm:block " >
         <VerticalMenuBar />
-        <div className="flex flex-col">
+        </div>
+        <div className="flex flex-col w-full">
           <Banner />
-          <RecipesFeed />
+          {/* <RecipesFeed /> */}
         </div>
       </main>
     </div>
