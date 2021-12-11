@@ -6,12 +6,12 @@ import Banner from "../../components/Banner/Banner";
 export default function Home() {
   return (
     <div>
-      <main className="flex max-w-7xl mx-auto px-8 sm:px-16">
-        <div className="hidden sm:block h-auto p-3">
+      <main className="flex max-w-7xl mx-auto mt-3">
+        <div className="hidden sm:block h-auto mb-3">
           <VerticalMenuBar />
         </div>
-        <div className="flex absolut flex-col w-full p-3 pl-0">
-          <Banner />
+        <div className="flex flex-col w-full">
+          <Banner/>
           <RecipesFeed />
         </div>
       </main>

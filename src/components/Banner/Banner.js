@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 function Banner() {
   return (
     <div>
-      <div className="flex justify-center items-center h-32 overflow-hidden">
+      <div className="flex justify-center items-center h-32 overflow-hidden mx-3">
         <Carousel
           autoPlay
           infiniteLoop
@@ -26,7 +26,7 @@ function Banner() {
             alt="Food Banner 2"
           />
           <img
-            className="min-h-full shrink-0"
+            className="min-w-full min-h-full shrink-0"
             loading="lazy"
             src="./img/food-3.webp"
             alt="Food Banner 3"

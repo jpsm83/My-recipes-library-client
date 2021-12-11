@@ -9,27 +9,34 @@ export default function RecipesCard({
   sourceName,
 }) {
   return (
-    <div className="relative flex flex-col m-5 bg-white z-30 p-10">
-      <h4 className="my-3">{title} m</h4>
-      <div className="w-6 text-yellow-400">
-        <StarIcon />
-      </div>
-      <div>
+    <div className="flex flex-grow shadow-lg flex-col m-1.5 rounded-lg w-60 hover:bg-yellow-50 hover:scale-105 transition transform duration-200 ease-out">
+      <h4 className="text-sm sm:text-lg m-2 font-bold text-red-700 text-center">
+        {title}
+      </h4>
+      <div className="flex justify-center items-center h-44 overflow-hidden">
         <img
+          className="min-w-full min-h-full shrink-0"
           src={image}
-          height={200}
-          width={200}
           alt={title}
-          objectFit="contain"
         />
       </div>
-      <p className="my-3">Ready in {readyInMinutes} m</p>
 
-      <div className="mb-5">
-        <div className="flex">{servings} Servings</div>
+      <div className="flex justify-between m-2 items-center">
+        <div>
+          <p className="text-xs sm:text-sm text-blcak">
+            Ready in {readyInMinutes} m
+          </p>
+          <p className="text-sm sm:text-md font-bold text-blcak">
+            {servings} Servings
+          </p>
+        </div>
+        <button className="mt-auto button">
+          <StarIcon className="w-8 text-yellow-400" />
+        </button>
       </div>
-      <p className="text-xs my-2 line-clamp-2">Create by {sourceName}</p>
-      <button className="mt-auto button">Add to Basket</button>
+      <p className="text-xs sm:text-md text-center mb-2 text-gray-500 border-t-2">
+        Create by {sourceName}
+      </p>
     </div>
   );
 }
