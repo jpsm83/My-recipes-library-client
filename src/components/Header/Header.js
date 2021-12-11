@@ -12,7 +12,7 @@ export default function Header() {
         {/* left elements */}
         <div className="flex items-center">
           <Link
-            to="/home"
+            to="/"
             className="flex text-yellow-500 cursor-pointer text-sm sm:text-xl items-center font-bold space-x-2 whitespace-nowrap"
           >
             <img
@@ -20,7 +20,6 @@ export default function Header() {
               alt="Food logo"
               width={60}
               height={40}
-              objectFit="contain"
             />
             <div>
               <h1>My Recipe Library</h1>

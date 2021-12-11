@@ -11,7 +11,7 @@ export default function Home() {
           <VerticalMenuBar />
         </div>
         <div className="flex flex-col w-full">
-          <Banner/>
+          <Banner />
           <RecipesFeed />
         </div>
       </main>

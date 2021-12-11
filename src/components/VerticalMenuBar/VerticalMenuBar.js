@@ -175,7 +175,7 @@ export default function VerticalMenuBar() {
           className="flex justify-between cursor-pointer items-center"
           onClick={() => toggleMenu(showfruitsMenu, setShowfruitsMenu)}
         >
-          <h2 className="text-md font-bold text-gray-600 sm:text-lg">Legumes</h2>
+          <h2 className="text-md font-bold text-gray-600 sm:text-lg">Fruits</h2>
           {showfruitsMenu ? (
             <ChevronDoubleUpIcon className="h-4 text-red-500" />
           ) : (
