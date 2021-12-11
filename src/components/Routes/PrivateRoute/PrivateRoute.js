@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router'
-import { withAuth } from '../../../context/auth.context';
+import { withAuth } from "../../../context/auth.context";
 
 function PrivateRoute(routeProps) {
   const { isLoggedIn, isLoading } = routeProps;

@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SearchIcon } from "@heroicons/react/outline";
+import { withAuth } from '../../context/auth.context';
 
-export default function Header() {
+function Header() {
   return (
     <header className="sticky top-0 z-50">
 
@@ -39,10 +40,12 @@ export default function Header() {
 
         {/* right elements */}
         <div className="text-gray-200 flex items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
+          <Link to="/favorites">
           <div className="cursor-pointer">
             <p>Favorites</p>
             <p className="font-bold sm:text-sm">Recipes</p>
           </div>
+          </Link>
           <div className="cursor-pointer">
             <p>SignIn</p>
             <p className="font-bold sm:text-sm">LogIn</p>
@@ -65,3 +68,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default withAuth(Header)

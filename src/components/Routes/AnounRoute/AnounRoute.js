@@ -5,7 +5,7 @@ import { withAuth } from "../../../context/auth.context";
 function AnonRoute(routeProps) {
   const { isLoggedIn, isLoading } = routeProps;
 
-  const { exact, path, redirectPath = "/recipes" } = routeProps;
+  const { exact, path, redirectPath = "/" } = routeProps;
   const ComponentToShow = routeProps.component;
 
   if (isLoading) return <p>Loading...</p>;

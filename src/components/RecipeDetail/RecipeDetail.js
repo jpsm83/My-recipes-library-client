@@ -2,7 +2,7 @@ import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
 import { Link } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
-// import { withAuth } from '../../context/auth.context';
+import { withAuth } from '../../context/auth.context';
 
 //all the props comes from props.match.params.id
 function RecipeDetail({
@@ -59,28 +59,47 @@ function RecipeDetail({
           <StarIcon className="w-8 text-yellow-400" />
         </button>
       </div>
-        <div className="border-2 rounded-lg m-3 mt-4 p-2 bg-gray-100">
-            <p className="text-md sm:text-lg font-bold text-gray-700 text-center">INGREDIENTS</p>
-            <p className="text-sm sm:text-md text-gray-700 text-center">{ingredients}</p>
-        </div>
-        <div className="border-2 rounded-lg m-3 p-2 bg-gray-100">
-            <p className="text-md sm:text-lg font-bold text-gray-700 text-center">PREPARATION</p>
-            <p className="text-sm sm:text-md text-gray-700 text-center">{preparation}</p>
-        </div>
-        <div className="border-2 rounded-lg m-3 p-2 bg-gray-100">
-            <p className="text-md sm:text-lg font-bold text-gray-700 text-center">HOW TO COOK</p>
-            <p className="text-sm sm:text-md text-gray-700 text-center">{howToCook}</p>
-        </div>
+      <div className="border-2 rounded-lg m-3 mt-4 p-2 bg-gray-100">
+        <p className="text-md sm:text-lg font-bold text-gray-700 text-center">
+          INGREDIENTS
+        </p>
+        <p className="text-sm sm:text-md text-gray-700 text-center">
+          {ingredients}
+        </p>
+      </div>
+      <div className="border-2 rounded-lg m-3 p-2 bg-gray-100">
+        <p className="text-md sm:text-lg font-bold text-gray-700 text-center">
+          PREPARATION
+        </p>
+        <p className="text-sm sm:text-md text-gray-700 text-center">
+          {preparation}
+        </p>
+      </div>
+      <div className="border-2 rounded-lg m-3 p-2 bg-gray-100">
+        <p className="text-md sm:text-lg font-bold text-gray-700 text-center">
+          HOW TO COOK
+        </p>
+        <p className="text-sm sm:text-md text-gray-700 text-center">
+          {howToCook}
+        </p>
+      </div>
 
       <div className="flex space-x-6 justify-center mb-6 mt-4">
         <Link to={`/edit-recipe/${id}`}>
           <button className="typesCousine text-white bg-green-800">Edit</button>
         </Link>
-        <button className="typesCousine text-white bg-red-800" onClick={() => deleteRecipe()}>Delete</button>
+        <Link to="/">
+        <button
+          className="typesCousine text-white bg-red-800"
+          onClick={() => deleteRecipe()}
+        >
+          Delete
+        </button>
+        </Link>
       </div>
     </div>
   );
 }
 
 // export default withAuth(RecipeDetail);
-export default RecipeDetail;
+export default withAuth(RecipeDetail);
