@@ -2,7 +2,7 @@ import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
 import { Link } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
-import { withAuth } from '../../context/auth.context';
+// import { withAuth } from '../../context/auth.context';
 
 //all the props comes from props.match.params.id
 function RecipeDetail({
@@ -102,4 +102,4 @@ function RecipeDetail({
 }
 
 // export default withAuth(RecipeDetail);
-export default withAuth(RecipeDetail);
+export default RecipeDetail

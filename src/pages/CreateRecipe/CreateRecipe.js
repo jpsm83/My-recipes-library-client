@@ -1,6 +1,6 @@
 import React from 'react';
 import RecipeForm from '../../components/RecipeForm/RecipeForm';
-import { withAuth } from '../../context/auth.context';
+// import { withAuth } from '../../context/auth.context';
 
 
 function CreateRecipe() {
@@ -11,4 +11,5 @@ function CreateRecipe() {
     )
 }
 
-export default withAuth(CreateRecipe)
+// export default withAuth(CreateRecipe)
+export default CreateRecipe

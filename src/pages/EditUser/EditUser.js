@@ -1,5 +1,5 @@
 import React from 'react';
-import { withAuth } from '../../context/auth.context';
+// import { withAuth } from '../../context/auth.context';
 
 function EditUser() {
     return (
@@ -9,4 +9,5 @@ function EditUser() {
     )
 }
 
-export default withAuth(EditUser);
+// export default withAuth(EditUser);
+export default EditUser

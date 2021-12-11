@@ -1,9 +1,10 @@
-import React from 'react'
+import UserForm from "../../components/UserForm/UserForm";
 
 export default function Signup() {
-    return (
-        <div>
-            <h1>signup</h1>
-        </div>
-    )
+  return (
+    <div className="">
+      <h2 className="title-text">CREATING A CHEF</h2>
+      <UserForm />
+    </div>
+  );
 }

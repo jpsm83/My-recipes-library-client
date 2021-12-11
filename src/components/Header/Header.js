@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SearchIcon } from "@heroicons/react/outline";
-import { withAuth } from '../../context/auth.context';
+// import { withAuth } from '../../context/auth.context';
 
 function Header() {
   return (
@@ -69,4 +69,5 @@ function Header() {
   );
 }
 
-export default withAuth(Header)
+export default Header
+// export default withAuth(Header)

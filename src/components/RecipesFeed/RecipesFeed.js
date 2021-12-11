@@ -1,7 +1,6 @@
 import React from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import RecipeService from "../../services/recipe.service";
-// import { withAuth } from '../../context/auth.context';
 
 class RecipesFeed extends React.Component {
   constructor(props) {
@@ -61,5 +60,4 @@ componentDidMount(){
   }
 }
 
-// export default withAuth(MyRecipes);
 export default RecipesFeed;

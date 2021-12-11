@@ -2,8 +2,9 @@ import React from "react";
 import VerticalMenuBar from "../../components/VerticalMenuBar/VerticalMenuBar";
 import RecipesFeed from "../../components/RecipesFeed/RecipesFeed";
 import Banner from "../../components/Banner/Banner";
+// import { withAuth } from '../../context/auth.context';
 
-export default function Home() {
+function Home() {
   return (
     <div>
       <main className="flex max-w-7xl mx-auto mt-3">
@@ -18,3 +19,6 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home
+// export default withAuth(Home)

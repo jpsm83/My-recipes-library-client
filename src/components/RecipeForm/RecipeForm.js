@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RecipeService from '../../services/recipe.service';
 import { Redirect } from 'react-router-dom';
-import { withAuth } from '../../context/auth.context';
+// import { withAuth } from '../../context/auth.context';
 
 //front validator MUST be equal to back validators
 const validators = {
@@ -245,4 +245,5 @@ handleSubmit(event) {
     }
 }
 
-export default withAuth(RecipeForm)
+// export default withAuth(RecipeForm)
+export default RecipeForm

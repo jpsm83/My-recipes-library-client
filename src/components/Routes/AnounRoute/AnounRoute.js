@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route } from "react-router";
 import { withAuth } from "../../../context/auth.context";
 
-function AnonRoute(routeProps) {
+function AnounRoute(routeProps) {
   const { isLoggedIn, isLoading } = routeProps;
 
   const { exact, path, redirectPath = "/" } = routeProps;
@@ -21,4 +21,4 @@ function AnonRoute(routeProps) {
   );
 }
 
-export default withAuth(AnonRoute);
+export default withAuth(AnounRoute);
