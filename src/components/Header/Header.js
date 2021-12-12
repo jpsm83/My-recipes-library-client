@@ -40,10 +40,16 @@ function Header() {
 
         {/* right elements */}
         <div className="text-gray-200 flex items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
-          <Link to="/favorites">
-          <div className="cursor-pointer">
-            <p>Favorites</p>
-            <p className="font-bold sm:text-sm">Recipes</p>
+        <Link to="/create-recipe">
+          <div className="cursor-pointer text-center">
+            <p>Create</p>
+            <p className="font-bold sm:text-sm">Recipe</p>
+          </div>
+          </Link>
+          <Link to="/my-creations">
+          <div className="cursor-pointer text-center">
+            <p>My</p>
+            <p className="font-bold sm:text-sm">Creations</p>
           </div>
           </Link>
           <div className="cursor-pointer">

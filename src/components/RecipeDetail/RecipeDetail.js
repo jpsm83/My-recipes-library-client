@@ -1,6 +1,6 @@
 import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
 // import { withAuth } from '../../context/auth.context';
 
@@ -17,7 +17,6 @@ function RecipeDetail({
   prepTime,
   preparation,
   howToCook,
-  refreshState,
 }) {
   const recipeService = new RecipeService();
 
@@ -25,7 +24,8 @@ function RecipeDetail({
     recipeService
       .deleteOne(id)
       .then(() => {
-        refreshState();
+        // you need export the component withRouter to be able to use history.push
+        this.props.history.push('/')
       })
       .catch((err) => console.error(err));
   };
@@ -96,10 +96,14 @@ function RecipeDetail({
           Delete
         </button>
         </Link>
+        <Link to={`/`}>
+          <button className="typesCousine text-white bg-yellow-600">Recipes</button>
+        </Link>
+
       </div>
     </div>
   );
 }
 
 // export default withAuth(RecipeDetail);
-export default RecipeDetail
+export default withRouter(RecipeDetail)

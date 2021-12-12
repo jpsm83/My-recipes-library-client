@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
 // import { withAuth } from '../../context/auth.context';
 
@@ -25,6 +25,14 @@ const validators = {
     let message;
     if (!value) {
       message = "Prep time is required";
+    }
+    return message;
+  },
+
+  image: (value) => {
+    let message;
+    if (!value) {
+      message = "Image is required";
     }
     return message;
   },
@@ -75,6 +83,7 @@ class EditRecipe extends React.Component {
     super(props);
     this.state = {
       fields: {
+        id: "",
         dishName: "",
         cousine: "",
         type: "",
@@ -85,7 +94,6 @@ class EditRecipe extends React.Component {
         howToCook: "",
         servings: "",
       },
-      redirect: false,
       errors: {
         dishName: null,
         cousine: null,
@@ -106,7 +114,6 @@ class EditRecipe extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.recipeService.getOne(id).then((res) => {
-      console.log(res);
       this.setState({ fields: { ...res.data } });
     });
   }
@@ -114,12 +121,15 @@ class EditRecipe extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.isValid()) {
-      const id = this.props.match.params.id;
+      // diferent ways to get the id
+      // const id = this.props.match.params.id;
+      const id = this.state.fields.id
       const uploadData = this.state.fields;
       this.recipeService
         .updateOne(id, uploadData)
         .then(() => {
-          console.log("updated");
+          // you need export the component withRouter to be able to use history.push
+          this.props.history.push("/recipe/" + id);
         })
         .catch((err) => console.log(err));
     }
@@ -145,10 +155,7 @@ class EditRecipe extends React.Component {
   }
 
   render() {
-    const { fields, errors, redirect } = this.state;
-    if (redirect) {
-      return <Redirect to="/" />;
-    }
+    const { fields, errors } = this.state;
 
     return (
       <div className="m-6">
@@ -303,14 +310,14 @@ class EditRecipe extends React.Component {
               )}
             </div>
 
-<div className="flex justify-center">
-            <button
-              className="cursor-pointer shadow-md bg-green-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
-              disabled={!this.isValid()}
-              type="submit"
-            >
-              Update Recipe
-            </button>
+            <div className="flex justify-center">
+              <button
+                className="cursor-pointer shadow-md bg-green-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
+                disabled={!this.isValid()}
+                type="submit"
+              >
+                Update Recipe
+              </button>
             </div>
           </form>
         </div>
@@ -320,4 +327,4 @@ class EditRecipe extends React.Component {
 }
 
 // export default withAuth(withRouter(EditRecipe));
-export default EditRecipe;
+export default withRouter(EditRecipe);
