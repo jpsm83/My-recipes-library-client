@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
 // import { withAuth } from '../../context/auth.context';
 
@@ -151,138 +151,169 @@ class EditRecipe extends React.Component {
     }
 
     return (
-      <div className="title-box">
-        <h2 className="title-text">UPDATE MY DISH</h2>
-        <div className="field-box">
-          <form onSubmit={(event) => this.handleSubmit(event)}>
-            <div className="">
-              <label htmlFor="dishName">Dish name: </label>
-
+      <div className="m-6">
+        <div className="flex mx-auto flex-col shadow-2xl rounded-lg max-w-5xl p-3 sm:p-6">
+          <form
+            className="space-y-4"
+            onSubmit={(event) => this.handleSubmit(event)}
+          >
+            <div className="flex flex-col">
+              <label className="labels" htmlFor="dishName">
+                Dish Name:
+              </label>
               <input
-                className=""
+                className="inputs sm:text-md"
                 type="text"
                 name="dishName"
                 value={fields.dishName}
                 onChange={(event) => this.handleChange(event)}
               />
               {errors.dishName && (
-                <p style={{ color: "red" }}>{errors.dishName}</p>
+                <p className="errorInputs sm:text-md">{errors.dishName}</p>
               )}
             </div>
-            <div className="form-item">
-              <label htmlFor="cousine">Cousine: </label>
-              <input
-                className={`${errors.cousine ? "error-input" : ""}`}
-                type="text"
-                name="cousine"
-                value={fields.cousine}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.cousine && (
-                <p style={{ color: "red" }}>{errors.cousine}</p>
-              )}
+
+            <div className="flex justify-between space-x-2">
+              <div className="flex flex-col">
+                <label className="labels" htmlFor="dishName">
+                  Cousine:
+                </label>
+                <input
+                  className="inputs sm:text-md"
+                  type="text"
+                  name="cousine"
+                  value={fields.cousine}
+                  onChange={(event) => this.handleChange(event)}
+                />
+                {errors.cousine && (
+                  <p className="errorInputs sm:text-md">{errors.dishName}</p>
+                )}
+              </div>
+
+              <div className="flex flex-col">
+                <label className="labels" htmlFor="dishName">
+                  Type:
+                </label>
+                <input
+                  className="inputs sm:text-md"
+                  type="text"
+                  name="type"
+                  value={fields.type}
+                  onChange={(event) => this.handleChange(event)}
+                />
+                {errors.type && (
+                  <p className="errorInputs sm:text-md">{errors.dishName}</p>
+                )}
+              </div>
+
+              <div className="flex flex-col">
+                <label className="labels" htmlFor="dishName">
+                  Prep Time:
+                </label>
+                <input
+                  className="inputs sm:text-md"
+                  type="text"
+                  name="prepTime"
+                  value={fields.prepTime}
+                  onChange={(event) => this.handleChange(event)}
+                />
+                {errors.prepTime && (
+                  <p className="errorInputs sm:text-md">{errors.dishName}</p>
+                )}
+              </div>
+
+              <div className="flex flex-col">
+                <label className="labels" htmlFor="dishName">
+                  Servings:
+                </label>
+                <input
+                  className="inputs sm:text-md"
+                  type="number"
+                  name="servings"
+                  value={fields.servings}
+                  onChange={(event) => this.handleChange(event)}
+                />
+                {errors.servings && (
+                  <p className="errorInputs sm:text-md">{errors.dishName}</p>
+                )}
+              </div>
             </div>
-            <div className="form-item">
-              <label htmlFor="type">Type: </label>
+
+            <div className="flex flex-col">
+              <label className="labels" htmlFor="dishName">
+                Image:
+              </label>
               <input
-                className={`${errors.type ? "error-input" : ""}`}
-                type="text"
-                name="type"
-                value={fields.type}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.type && <p style={{ color: "red" }}>{errors.type}</p>}
-            </div>
-            <div className="form-item">
-              <label htmlFor="image">Image: </label>
-              <input
-                className={`${errors.image ? "error-input" : ""}`}
+                className="inputs sm:text-md"
                 type="text"
                 name="image"
                 value={fields.image}
                 onChange={(event) => this.handleChange(event)}
               />
-              {errors.image && <p style={{ color: "red" }}>{errors.image}</p>}
+              {errors.image && (
+                <p className="errorInputs sm:text-md">{errors.dishName}</p>
+              )}
             </div>
 
-            <div className="form-item">
-              <label htmlFor="ingredients">Ingredients: </label>
+            <div className="flex flex-col">
+              <label className="labels" htmlFor="dishName">
+                Ingredients:
+              </label>
               <input
-                className={`${errors.ingredients ? "error-input" : ""}`}
+                className="inputs sm:text-md"
                 type="text"
                 name="ingredients"
                 value={fields.ingredients}
                 onChange={(event) => this.handleChange(event)}
               />
               {errors.ingredients && (
-                <p style={{ color: "red" }}>{errors.ingredients}</p>
-              )}
-            </div>
-            <div className="form-item">
-              <label htmlFor="prepTime">Prep time: </label>
-              <input
-                className={`${errors.prepTime ? "error-input" : ""}`}
-                type="text"
-                name="prepTime"
-                value={fields.prepTime}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.prepTime && (
-                <p style={{ color: "red" }}>{errors.prepTime}</p>
+                <p className="errorInputs sm:text-md">{errors.dishName}</p>
               )}
             </div>
 
-            <div className="form-item">
-              <label htmlFor="preparation">Preparation: </label>
+            <div className="flex flex-col">
+              <label className="labels" htmlFor="dishName">
+                Preparation:
+              </label>
               <input
-                className={`${errors.preparation ? "error-input" : ""}`}
+                className="inputs sm:text-md"
                 type="text"
                 name="preparation"
                 value={fields.preparation}
                 onChange={(event) => this.handleChange(event)}
               />
               {errors.preparation && (
-                <p style={{ color: "red" }}>{errors.preparation}</p>
+                <p className="errorInputs sm:text-md">{errors.dishName}</p>
               )}
             </div>
-            <div className="form-item">
-              <label htmlFor="howToCook">How to cook: </label>
+
+            <div className="flex flex-col">
+              <label className="labels" htmlFor="dishName">
+                How To Cook:
+              </label>
               <input
-                className={`${errors.howToCook ? "error-input" : ""}`}
+                className="inputs sm:text-md"
                 type="text"
                 name="howToCook"
                 value={fields.howToCook}
                 onChange={(event) => this.handleChange(event)}
               />
               {errors.howToCook && (
-                <p style={{ color: "red" }}>{errors.howToCook}</p>
+                <p className="errorInputs sm:text-md">{errors.dishName}</p>
               )}
             </div>
-            <div className="form-item">
-              <label htmlFor="servings">Servings: </label>
-              <input
-                className={`${errors.servings ? "error-input" : ""}`}
-                type="text"
-                name="servings"
-                value={fields.servings}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.servings && (
-                <p style={{ color: "red" }}>{errors.servings}</p>
-              )}
-            </div>
+
+<div className="flex justify-center">
             <button
-              className="update-bt"
+              className="cursor-pointer shadow-md bg-green-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
               disabled={!this.isValid()}
               type="submit"
             >
               Update Recipe
             </button>
+            </div>
           </form>
         </div>
-        <Link className="home-bt" to="/recipes">
-          Home
-        </Link>
       </div>
     );
   }
