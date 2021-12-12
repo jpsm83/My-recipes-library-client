@@ -13,36 +13,27 @@ class RecipesFeed extends React.Component {
     this.recipeService = new RecipeService();
   }
 
-  refreshState(){
-    this.recipeService.get()
-    .then(res => {
-        this.setState({ recipes: res.data })
-    })
-    .catch(err => console.error(err))
-}
+  refreshState() {
+    this.recipeService
+      .get()
+      .then((res) => {
+        this.setState({ recipes: res.data });
+      })
+      .catch((err) => console.error(err));
+  }
 
-componentDidMount(){
+  componentDidMount() {
     this.refreshState();
-}
+  }
 
   //never update state inside render (setState), it causes infinity loop
   displayRecipes() {
-    return this.state.recipes.map(
-      ({ id, dishName, image, prepTime, servings, user }) => {
-        return (
-          <RecipeCard
-            key={id}
-            id={id}
-            dishName={dishName}
-            image={image}
-            prepTime={prepTime}
-            servings={servings}
-            user={user}
-            refreshState={() => this.refreshState()}
-          />
-        );
-      }
-    );
+    return this.state.recipes.map((recipe) => {
+      // spreed operator replace name/value from recipe - it is a shortcut
+      return (
+        <RecipeCard {...recipe} refreshState={() => this.refreshState()} />
+      );
+    });
   }
 
   render() {
