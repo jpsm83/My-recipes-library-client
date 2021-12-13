@@ -1,82 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
+import validators from "../../components/Validators/Validators";
+import RecipeForm from "../../components/RecipeForm/RecipeForm";
 // import { withAuth } from '../../context/auth.context';
-
-//front validator MUST be equal to back validators
-const validators = {
-  dishName: (value) => {
-    let message;
-    if (!value) {
-      message = "Dish name is required";
-    }
-    return message;
-  },
-
-  ingredients: (value) => {
-    let message;
-    if (!value) {
-      message = "Ingredients are required";
-    }
-    return message;
-  },
-
-  prepTime: (value) => {
-    let message;
-    if (!value) {
-      message = "Prep time is required";
-    }
-    return message;
-  },
-
-  image: (value) => {
-    let message;
-    if (!value) {
-      message = "Image is required";
-    }
-    return message;
-  },
-
-  preparation: (value) => {
-    let message;
-    if (!value) {
-      message = "Preparation is required";
-    }
-    return message;
-  },
-
-  howToCook: (value) => {
-    let message;
-    if (!value) {
-      message = "How to cook is required";
-    }
-    return message;
-  },
-
-  cousine: (value) => {
-    let message;
-    if (!value) {
-      message = "Cousine time is required";
-    }
-    return message;
-  },
-
-  type: (value) => {
-    let message;
-    if (!value) {
-      message = "Type time is required";
-    }
-    return message;
-  },
-
-  servings: (value) => {
-    let message;
-    if (!value) {
-      message = "Servings are required";
-    }
-    return message;
-  },
-};
 
 class EditRecipe extends React.Component {
   constructor(props) {
@@ -94,6 +21,7 @@ class EditRecipe extends React.Component {
         howToCook: "",
         servings: "",
       },
+      buttonType: "Update Recipe",
       errors: {
         dishName: null,
         cousine: null,
@@ -123,7 +51,7 @@ class EditRecipe extends React.Component {
     if (this.isValid()) {
       // diferent ways to get the id
       // const id = this.props.match.params.id;
-      const id = this.state.fields.id
+      const id = this.state.fields.id;
       const uploadData = this.state.fields;
       this.recipeService
         .updateOne(id, uploadData)
@@ -154,173 +82,23 @@ class EditRecipe extends React.Component {
     return !Object.keys(errors).some((key) => errors[key]);
   }
 
+  goBack() {
+    // diferent ways to get the id
+    // const id = this.props.match.params.id;
+    const id = this.state.fields.id;
+    this.props.history.push("/recipe/" + id);
+  }
+
   render() {
-    const { fields, errors } = this.state;
-
     return (
-      <div className="m-6">
-        <div className="flex mx-auto flex-col shadow-2xl rounded-lg max-w-5xl p-3 sm:p-6">
-          <form
-            className="space-y-4"
-            onSubmit={(event) => this.handleSubmit(event)}
-          >
-            <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
-                Dish Name:
-              </label>
-              <input
-                className="inputs sm:text-md"
-                type="text"
-                name="dishName"
-                value={fields.dishName}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.dishName && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
-              )}
-            </div>
-
-            <div className="flex justify-between space-x-2">
-              <div className="flex flex-col">
-                <label className="labels" htmlFor="dishName">
-                  Cousine:
-                </label>
-                <input
-                  className="inputs sm:text-md"
-                  type="text"
-                  name="cousine"
-                  value={fields.cousine}
-                  onChange={(event) => this.handleChange(event)}
-                />
-                {errors.cousine && (
-                  <p className="errorInputs sm:text-md">{errors.dishName}</p>
-                )}
-              </div>
-
-              <div className="flex flex-col">
-                <label className="labels" htmlFor="dishName">
-                  Type:
-                </label>
-                <input
-                  className="inputs sm:text-md"
-                  type="text"
-                  name="type"
-                  value={fields.type}
-                  onChange={(event) => this.handleChange(event)}
-                />
-                {errors.type && (
-                  <p className="errorInputs sm:text-md">{errors.dishName}</p>
-                )}
-              </div>
-
-              <div className="flex flex-col">
-                <label className="labels" htmlFor="dishName">
-                  Prep Time:
-                </label>
-                <input
-                  className="inputs sm:text-md"
-                  type="text"
-                  name="prepTime"
-                  value={fields.prepTime}
-                  onChange={(event) => this.handleChange(event)}
-                />
-                {errors.prepTime && (
-                  <p className="errorInputs sm:text-md">{errors.dishName}</p>
-                )}
-              </div>
-
-              <div className="flex flex-col">
-                <label className="labels" htmlFor="dishName">
-                  Servings:
-                </label>
-                <input
-                  className="inputs sm:text-md"
-                  type="number"
-                  name="servings"
-                  value={fields.servings}
-                  onChange={(event) => this.handleChange(event)}
-                />
-                {errors.servings && (
-                  <p className="errorInputs sm:text-md">{errors.dishName}</p>
-                )}
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
-                Image:
-              </label>
-              <input
-                className="inputs sm:text-md"
-                type="text"
-                name="image"
-                value={fields.image}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.image && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
-              )}
-            </div>
-
-            <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
-                Ingredients:
-              </label>
-              <input
-                className="inputs sm:text-md"
-                type="text"
-                name="ingredients"
-                value={fields.ingredients}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.ingredients && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
-              )}
-            </div>
-
-            <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
-                Preparation:
-              </label>
-              <input
-                className="inputs sm:text-md"
-                type="text"
-                name="preparation"
-                value={fields.preparation}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.preparation && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
-              )}
-            </div>
-
-            <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
-                How To Cook:
-              </label>
-              <input
-                className="inputs sm:text-md"
-                type="text"
-                name="howToCook"
-                value={fields.howToCook}
-                onChange={(event) => this.handleChange(event)}
-              />
-              {errors.howToCook && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
-              )}
-            </div>
-
-            <div className="flex justify-center">
-              <button
-                className="cursor-pointer shadow-md bg-green-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
-                disabled={!this.isValid()}
-                type="submit"
-              >
-                Update Recipe
-              </button>
-            </div>
-          </form>
-        </div>
+      <div className="flex justify-center">
+        <RecipeForm
+          goBack={() => this.goBack()}
+          isValid={() => this.isValid()}
+          handleSubmit={(e) => this.handleSubmit(e)}
+          handleChange={(e) => this.handleChange(e)}
+          {...this.state}
+        />
       </div>
     );
   }
