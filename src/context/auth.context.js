@@ -12,6 +12,7 @@ class AuthProvider extends React.Component {
 
   authService = new AuthService();
 
+  // componentDidMount is ALWAYS the first function to execute
   async componentDidMount() {
     try {
       const response = await this.authService.isLoggedIn();
@@ -87,10 +88,16 @@ class AuthProvider extends React.Component {
 }
 
 // HOC - High Order Component that converts regular component into Consumer
+
+// WrappedComponent are any component that needs to connect to this context (consumer component)
+
+// once a component connected to this context it can use all the methods for
+// authentication (provider) - isLoading, isLoggedIn, user, signup, login, logout, edit
 const withAuth = (WrappedComponent) => {
   return function (props) {
     return (
       <Consumer>
+      {/* value comes from provider return */}
         {(value) => {
           const { isLoading, isLoggedIn, user, signup, login, logout, edit } =
             value;

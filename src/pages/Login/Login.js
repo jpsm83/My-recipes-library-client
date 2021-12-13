@@ -4,19 +4,16 @@ import { userValidators } from "../../components/Validators/Validators";
 import UserForm from "../../components/UserForm/UserForm";
 import { withAuth } from "../../context/auth.context";
 
-class Signup extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       fields: {
-        username: "",
         email: "",
         password: "",
       },
-      buttonType: "Signup",
-      signup: true,
+      buttonType: "Login",
       errors: {
-        username: null,
         email: null,
         password: null,
       },
@@ -26,7 +23,7 @@ class Signup extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.isValid()) {
-      this.props.signup(this.state.fields);
+      this.props.login(this.state.fields);
       this.props.history.push("/");
     }
   }
@@ -69,4 +66,4 @@ class Signup extends Component {
   }
 }
 
-export default withAuth(withRouter(Signup));
+export default withAuth(withRouter(Login));

@@ -1,122 +1,89 @@
-import React, { Component } from 'react';
-import AuthService from '../../services/auth.service';
+import React from "react";
 
-const EMAIL_PATTERN = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+export default function RecipeForm(props) {
+  const {
+    handleSubmit,
+    handleChange,
+    errors,
+    fields,
+    signup,
+    isValid,
+    buttonType,
+    goBack,
+  } = props;
 
-const validators = {
-    username: (value) => {
-        let message;
-        if (!value) {
-        message = "Username name is required";
-        } else if (value.length < 3) {
-        message = "Invalid username";
-        }
-        return message;
-    },
-
-    password: (value) => {
-        let message;
-        if (!value) {
-        message = "Password is required";
-        } else if (value.length < 3) {
-        message = "Invalid password";
-        }
-        return message;
-    },
-
-    email: (value) => {
-        let message;
-        if (!value) {
-        message = "email is required";
-        } else if(!EMAIL_PATTERN.test(value)){
-        message = 'Invalid email';
-        }
-    return message;
-},
-}
-
-export default class UserForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        fields: {
-            username: "",
-            password: "",
-            email: "",
-        },
-        errors: {
-            username: null,
-            password: null,
-            email: null,
-            }
-        }
-        this.authService = new AuthService()
-    }
-
-handleSubmit(event) {
-    event.preventDefault();
-    if(this.isValid()){
-        this.authService.signup(this.state.fields)
-        .then(() => {
-        this.setState({
-            fields: {
-                username: "",
-                password: "",
-                email: "",
-                },
-            errors: {
-                username: null,
-                password: null,
-                email: null,
-                }
-            });
-        })
-        .catch(err => console.error(err))
-    }
-}
-
-    handleChange(event) {
-        const { name, value } = event.target;
-        this.setState({
-        fields: {
-            ...this.state.fields,
-            [name]: value
-        },
-        errors: {
-            ...this.state.errors,
-            [name]: validators[name](value)
-        }
-        });
-    }
-
-    isValid() {
-        const { errors } = this.state;
-        return !Object.keys(errors).some(key => errors[key]);
-    }
-
-    render() {
-        const { fields, errors } = this.state;
-        return (
-            <div className="field-box">
-                <form onSubmit={(event) => this.handleSubmit(event)} >
-                    <div className="form-item">
-                        <label htmlFor="username">Username: </label>
-                        <input className={`${errors.username ? "error-input" : ""}`} type="text" name="username" value={fields.username} onChange={(event) => this.handleChange(event)} />
-                        {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
-                    </div>
-                    <div className="form-item">
-                        <label htmlFor="email">Email: </label>
-                        <input className={`${errors.email ? "error-input" : ""}`} type="text" name="email" value={fields.email} onChange={(event) => this.handleChange(event)} />
-                        {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-                    </div>
-                    <div className="form-item">
-                        <label htmlFor="password">Password: </label>
-                        <input className={`${errors.password ? "error-input" : ""}`} type="text" name="password" value={fields.password} onChange={(event) => this.handleChange(event)} />
-                        {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
-                    </div>
-                    <button className="update-bt" disabled={!this.isValid()} type="submit">Create Chef</button>
-                </form>
+  return (
+    <div className="m-6">
+      <div className="flex mx-auto flex-col shadow-2xl rounded-lg max-w-5xl p-3 sm:p-6">
+        <form className="space-y-4" onSubmit={(event) => handleSubmit(event)}>
+          {signup && (
+            <div className="flex flex-col">
+              <label className="labels" htmlFor="username">
+                Username:
+              </label>
+              <input
+                className="inputs sm:text-md"
+                type="text"
+                name="username"
+                value={fields.username}
+                onChange={(event) => handleChange(event)}
+              />
+              {errors.username && (
+                <p className="errorInputs sm:text-md">{errors.username}</p>
+              )}
             </div>
-        )
-    }
+          )}
+
+          <div className="flex flex-col">
+            <label className="labels" htmlFor="email">
+              Email:
+            </label>
+            <input
+              className="inputs sm:text-md"
+              type="text"
+              name="email"
+              value={fields.email}
+              onChange={(event) => handleChange(event)}
+            />
+            {errors.email && (
+              <p className="errorInputs sm:text-md">{errors.email}</p>
+            )}
+          </div>
+
+          <div className="flex flex-col">
+            <label className="labels" htmlFor="password">
+              Password:
+            </label>
+            <input
+              className="inputs sm:text-md"
+              type="password"
+              name="password"
+              value={fields.password}
+              onChange={(event) => handleChange(event)}
+            />
+            {errors.password && (
+              <p className="errorInputs sm:text-md">{errors.password}</p>
+            )}
+          </div>
+
+          <div className="text-center space-x-6">
+            <button
+              className="cursor-pointer shadow-md bg-green-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
+              disabled={!isValid()}
+              type="submit"
+            >
+              {buttonType}
+            </button>
+            <button
+              onClick={() => goBack()}
+              className="cursor-pointer shadow-md bg-red-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
+              type="submit"
+            >
+              Back
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }

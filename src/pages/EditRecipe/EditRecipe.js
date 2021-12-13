@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
-import validators from "../../components/Validators/Validators";
+import { recipeValidators } from "../../components/Validators/Validators";
 import RecipeForm from "../../components/RecipeForm/RecipeForm";
 // import { withAuth } from '../../context/auth.context';
 
@@ -72,7 +72,7 @@ class EditRecipe extends React.Component {
       },
       errors: {
         ...this.state.errors,
-        [name]: validators[name](value),
+        [name]: recipeValidators[name](value),
       },
     });
   }

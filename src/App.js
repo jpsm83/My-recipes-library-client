@@ -5,11 +5,12 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import EditRecipe from "./pages/EditRecipe/EditRecipe";
 import CreateRecipe from "./pages/CreateRecipe/CreateRecipe";
-// import PrivateRoute from "./components/Routes/PrivateRoute/PrivateRoute";
-// import AnounRoute from "./components/Routes/AnounRoute/AnounRoute";
+import PrivateRoute from "./components/Routes/PrivateRoute/PrivateRoute";
+import AnounRoute from "./components/Routes/AnounRoute/AnounRoute";
 import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
 import EditUser from "./pages/EditUser/EditUser";
-// import { withAuth } from './context/auth.context';
+import { withAuth } from './context/auth.context';
 
 
 function App() {
@@ -19,11 +20,12 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/create-recipe" component={CreateRecipe} />
+        <AnounRoute exact path="/signup" component={Signup} />
+        <AnounRoute exact path="/login" component={Login} />
+        <PrivateRoute exact path="/create-recipe" component={CreateRecipe} />
         <Route exact path="/recipe/:id" component={Recipe} />
-        <Route exact path="/edit-user/:id" component={EditUser} />
-        <Route exact path="/edit-recipe/:id" component={EditRecipe} />
+        <PrivateRoute exact path="/edit-user/:id" component={EditUser} />
+        <PrivateRoute exact path="/edit-recipe/:id" component={EditRecipe} />
       </Switch>
 
       <Footer />
@@ -31,5 +33,4 @@ function App() {
   );
 }
 
-// export default withAuth(App);
-export default App
+export default withAuth(App);
