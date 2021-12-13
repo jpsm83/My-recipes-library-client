@@ -10,8 +10,7 @@ import AnounRoute from "./components/Routes/AnounRoute/AnounRoute";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import EditUser from "./pages/EditUser/EditUser";
-import { withAuth } from './context/auth.context';
-
+import { withAuth } from "./context/auth.context";
 
 function App() {
   return (

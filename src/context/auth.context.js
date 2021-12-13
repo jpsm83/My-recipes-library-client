@@ -97,7 +97,7 @@ const withAuth = (WrappedComponent) => {
   return function (props) {
     return (
       <Consumer>
-      {/* value comes from provider return */}
+        {/* value comes from provider return */}
         {(value) => {
           const { isLoading, isLoggedIn, user, signup, login, logout, edit } =
             value;

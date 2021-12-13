@@ -1,13 +1,73 @@
-import React from 'react';
-// import { withAuth } from '../../context/auth.context';
+import React from "react";
+import { withRouter } from "react-router-dom";
+import { userValidators } from "../../components/Validators/Validators";
+import UserForm from "../../components/UserForm/UserForm";
+import { withAuth } from "../../context/auth.context";
 
-function EditUser() {
+class EditUser extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fields: {
+        username: "",
+        email: "",
+        password: "",
+      },
+      buttonType: "Update User",
+      editUser: true,
+      errors: {
+        username: null,
+        email: null,
+        password: null,
+      },
+    };
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.isValid()) {
+      // diferent ways to get the id
+      // const id = this.props.match.params.id;
+      this.props.edit(this.state.fields);
+    }
+  }
+
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({
+      fields: {
+        ...this.state.fields,
+        [name]: value,
+      },
+      errors: {
+        ...this.state.errors,
+        [name]: userValidators[name](value),
+      },
+    });
+  }
+
+  isValid() {
+    const { errors } = this.state;
+    return !Object.keys(errors).some((key) => errors[key]);
+  }
+
+  goBack() {
+    this.props.history.push("/");
+  }
+
+  render() {
     return (
-        <div>
-            <h1>edit user</h1>
-        </div>
-    )
+      <div className="flex justify-center">
+        <UserForm
+          goBack={() => this.goBack()}
+          isValid={() => this.isValid()}
+          handleSubmit={(e) => this.handleSubmit(e)}
+          handleChange={(e) => this.handleChange(e)}
+          {...this.state}
+        />
+      </div>
+    );
+  }
 }
 
-// export default withAuth(EditUser);
-export default EditUser
+export default withAuth(withRouter(EditUser));

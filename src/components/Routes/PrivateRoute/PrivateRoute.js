@@ -1,5 +1,5 @@
-import React from 'react'
-import { Redirect, Route } from 'react-router'
+import React from "react";
+import { Redirect, Route } from "react-router";
 import { withAuth } from "../../../context/auth.context";
 
 // PrivateRoutes alow you to get in especific pages
@@ -12,19 +12,17 @@ function PrivateRoute(routeProps) {
   const { exact, path } = routeProps;
   const ComponentToShow = routeProps.component;
 
-  if(isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading...</p>;
   return (
-    <Route 
+    <Route
       exact={exact}
       path={path}
-      render={
-        function(props) {
-          if(!isLoggedIn) return <Redirect to="/login" />
-          else if(isLoggedIn) return <ComponentToShow {...props} />
-        }
-      }
+      render={function (props) {
+        if (!isLoggedIn) return <Redirect to="/login" />;
+        else if (isLoggedIn) return <ComponentToShow {...props} />;
+      }}
     />
-  )
+  );
 }
 
 // withAuth comes from context and alow the component to use it

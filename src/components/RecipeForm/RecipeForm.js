@@ -33,7 +33,7 @@ export default function RecipeForm(props) {
 
           <div className="flex justify-between space-x-2">
             <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
+              <label className="labels" htmlFor="cousine">
                 Cousine:
               </label>
               <input
@@ -44,12 +44,12 @@ export default function RecipeForm(props) {
                 onChange={(event) => handleChange(event)}
               />
               {errors.cousine && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
+                <p className="errorInputs sm:text-md">{errors.cousine}</p>
               )}
             </div>
 
             <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
+              <label className="labels" htmlFor="type">
                 Type:
               </label>
               <input
@@ -60,12 +60,12 @@ export default function RecipeForm(props) {
                 onChange={(event) => handleChange(event)}
               />
               {errors.type && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
+                <p className="errorInputs sm:text-md">{errors.type}</p>
               )}
             </div>
 
             <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
+              <label className="labels" htmlFor="prepTime">
                 Prep Time:
               </label>
               <input
@@ -76,12 +76,12 @@ export default function RecipeForm(props) {
                 onChange={(event) => handleChange(event)}
               />
               {errors.prepTime && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
+                <p className="errorInputs sm:text-md">{errors.prepTime}</p>
               )}
             </div>
 
             <div className="flex flex-col">
-              <label className="labels" htmlFor="dishName">
+              <label className="labels" htmlFor="servings">
                 Servings:
               </label>
               <input
@@ -92,13 +92,13 @@ export default function RecipeForm(props) {
                 onChange={(event) => handleChange(event)}
               />
               {errors.servings && (
-                <p className="errorInputs sm:text-md">{errors.dishName}</p>
+                <p className="errorInputs sm:text-md">{errors.servings}</p>
               )}
             </div>
           </div>
 
           <div className="flex flex-col">
-            <label className="labels" htmlFor="dishName">
+            <label className="labels" htmlFor="image">
               Image:
             </label>
             <input
@@ -109,12 +109,12 @@ export default function RecipeForm(props) {
               onChange={(event) => handleChange(event)}
             />
             {errors.image && (
-              <p className="errorInputs sm:text-md">{errors.dishName}</p>
+              <p className="errorInputs sm:text-md">{errors.image}</p>
             )}
           </div>
 
           <div className="flex flex-col">
-            <label className="labels" htmlFor="dishName">
+            <label className="labels" htmlFor="ingredients">
               Ingredients:
             </label>
             <input
@@ -125,12 +125,12 @@ export default function RecipeForm(props) {
               onChange={(event) => handleChange(event)}
             />
             {errors.ingredients && (
-              <p className="errorInputs sm:text-md">{errors.dishName}</p>
+              <p className="errorInputs sm:text-md">{errors.ingredients}</p>
             )}
           </div>
 
           <div className="flex flex-col">
-            <label className="labels" htmlFor="dishName">
+            <label className="labels" htmlFor="preparation">
               Preparation:
             </label>
             <input
@@ -141,12 +141,12 @@ export default function RecipeForm(props) {
               onChange={(event) => handleChange(event)}
             />
             {errors.preparation && (
-              <p className="errorInputs sm:text-md">{errors.dishName}</p>
+              <p className="errorInputs sm:text-md">{errors.preparation}</p>
             )}
           </div>
 
           <div className="flex flex-col">
-            <label className="labels" htmlFor="dishName">
+            <label className="labels" htmlFor="howToCook">
               How To Cook:
             </label>
             <input
@@ -157,7 +157,7 @@ export default function RecipeForm(props) {
               onChange={(event) => handleChange(event)}
             />
             {errors.howToCook && (
-              <p className="errorInputs sm:text-md">{errors.dishName}</p>
+              <p className="errorInputs sm:text-md">{errors.howToCook}</p>
             )}
           </div>
 

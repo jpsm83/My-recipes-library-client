@@ -3,105 +3,105 @@ const EMAIL_PATTERN =
 
 //front validator MUST be equal to back validators
 const recipeValidators = {
-    dishName: (value) => {
-      let message;
-      if (!value) {
-        message = "Dish name is required";
-      }
-      return message;
-    },
-  
-    ingredients: (value) => {
-      let message;
-      if (!value) {
-        message = "Ingredients are required";
-      }
-      return message;
-    },
-  
-    prepTime: (value) => {
-      let message;
-      if (!value) {
-        message = "Prep time is required";
-      }
-      return message;
-    },
-  
-    image: (value) => {
-      let message;
-      if (!value) {
-        message = "Image is required";
-      }
-      return message;
-    },
-  
-    preparation: (value) => {
-      let message;
-      if (!value) {
-        message = "Preparation is required";
-      }
-      return message;
-    },
-  
-    howToCook: (value) => {
-      let message;
-      if (!value) {
-        message = "How to cook is required";
-      }
-      return message;
-    },
-  
-    cousine: (value) => {
-      let message;
-      if (!value) {
-        message = "Cousine time is required";
-      }
-      return message;
-    },
-  
-    type: (value) => {
-      let message;
-      if (!value) {
-        message = "Type time is required";
-      }
-      return message;
-    },
-  
-    servings: (value) => {
-      let message;
-      if (!value) {
-        message = "Servings are required";
-      }
-      return message;
-    },
-  };
+  dishName: (value) => {
+    let message;
+    if (!value) {
+      message = "Dish name is required";
+    }
+    return message;
+  },
 
-  const userValidators = {
-      username: (value) => {
-        let message;
-        if (!value) {
-          message = "Username is required";
-        }
-        return message;
-      },
-    
-      email: (value) => {
-        let message;
-        if (!value) {
-          message = "Email is required";
-        } else if (!EMAIL_PATTERN.test(value)) {
-          message = "Invalid Email";
-        }
-        return message;
-      },
-    
-      password: (value) => {
-        let message;
-        if (!value) {
-          message = "Password is required";
-        }
-        return message;
-      },
-    };
+  ingredients: (value) => {
+    let message;
+    if (!value) {
+      message = "Ingredients are required";
+    }
+    return message;
+  },
 
-  export { recipeValidators, userValidators };
+  prepTime: (value) => {
+    let message;
+    if (!value) {
+      message = "Prep time is required";
+    }
+    return message;
+  },
+
+  image: (value) => {
+    let message;
+    if (!value) {
+      message = "Image is required";
+    }
+    return message;
+  },
+
+  preparation: (value) => {
+    let message;
+    if (!value) {
+      message = "Preparation is required";
+    }
+    return message;
+  },
+
+  howToCook: (value) => {
+    let message;
+    if (!value) {
+      message = "How to cook is required";
+    }
+    return message;
+  },
+
+  cousine: (value) => {
+    let message;
+    if (!value) {
+      message = "Cousine time is required";
+    }
+    return message;
+  },
+
+  type: (value) => {
+    let message;
+    if (!value) {
+      message = "Type time is required";
+    }
+    return message;
+  },
+
+  servings: (value) => {
+    let message;
+    if (!value) {
+      message = "Servings are required";
+    }
+    return message;
+  },
+};
+
+const userValidators = {
+  username: (value) => {
+    let message;
+    if (!value) {
+      message = "Username is required";
+    }
+    return message;
+  },
+
+  email: (value) => {
+    let message;
+    if (!value) {
+      message = "Email is required";
+    } else if (!EMAIL_PATTERN.test(value)) {
+      message = "Invalid Email";
+    }
+    return message;
+  },
+
+  password: (value) => {
+    let message;
+    if (!value) {
+      message = "Password is required";
+    }
+    return message;
+  },
+};
+
+export { recipeValidators, userValidators };

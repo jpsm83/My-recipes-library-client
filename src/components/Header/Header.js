@@ -51,13 +51,19 @@ function Header(props) {
             </Link>
 
             <div className="flex items-center space-x-2">
-            <div className=" cursor-pointer">
-            <Link to="/edit-user">
-              <p className="font-bold">{user.username}</p>
-              </Link>
-              <p className="sm:text-sm" onClick={logout}>Logout</p>
+              <div className=" cursor-pointer">
+                <Link to={`/edit-user/${user.id}`}>
+                  <p className="font-bold">{user.username}</p>
+                </Link>
+                <p className="sm:text-sm" onClick={logout}>
+                  Logout
+                </p>
               </div>
-              <img src={user.photo} alt={user.username} className="object-cover h-12 w-12 flex cursor-auto justify-center flex-shrink-0 overflow-hidden items-center rounded-full" />
+              <img
+                src={user.photo}
+                alt={user.username}
+                className="object-cover h-12 w-12 flex cursor-auto justify-center flex-shrink-0 overflow-hidden items-center rounded-full"
+              />
             </div>
           </div>
         ) : (

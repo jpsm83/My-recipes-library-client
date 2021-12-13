@@ -2,7 +2,6 @@ import React from "react";
 import VerticalMenuBar from "../../components/VerticalMenuBar/VerticalMenuBar";
 import RecipesFeed from "../../components/RecipesFeed/RecipesFeed";
 import Banner from "../../components/Banner/Banner";
-// import { withAuth } from '../../context/auth.context';
 
 function Home() {
   return (
@@ -20,5 +19,4 @@ function Home() {
   );
 }
 
-export default Home
-// export default withAuth(Home)
+export default Home;

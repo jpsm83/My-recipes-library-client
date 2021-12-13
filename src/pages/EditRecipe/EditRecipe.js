@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
 import { recipeValidators } from "../../components/Validators/Validators";
 import RecipeForm from "../../components/RecipeForm/RecipeForm";
-// import { withAuth } from '../../context/auth.context';
 
 class EditRecipe extends React.Component {
   constructor(props) {
@@ -104,5 +103,4 @@ class EditRecipe extends React.Component {
   }
 }
 
-// export default withAuth(withRouter(EditRecipe));
 export default withRouter(EditRecipe);

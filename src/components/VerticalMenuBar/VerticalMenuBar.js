@@ -72,9 +72,8 @@ export default function VerticalMenuBar() {
 
   return (
     <div className="w-36 min-h-full rounded-lg p-2 shadow-2xl space-y-2 overflow-scroll scrollbar-hide">
-
       <div className="border-b-2">
-      <div
+        <div
           className="flex justify-between cursor-pointer items-center"
           onClick={() => toggleMenu(showMeetMenu, setShowMeetMenu)}
         >
@@ -103,11 +102,13 @@ export default function VerticalMenuBar() {
       </div>
 
       <div className="border-b-2">
-      <div
+        <div
           className="flex justify-between cursor-pointer items-center"
           onClick={() => toggleMenu(showVegMenu, setShowVegMenu)}
         >
-          <h2 className="text-md font-bold text-gray-600 sm:text-lg">Vegetables</h2>
+          <h2 className="text-md font-bold text-gray-600 sm:text-lg">
+            Vegetables
+          </h2>
           {showVegMenu ? (
             <ChevronDoubleUpIcon className="h-4 text-red-500" />
           ) : (
@@ -141,7 +142,9 @@ export default function VerticalMenuBar() {
           className="flex justify-between cursor-pointer items-center"
           onClick={() => toggleMenu(showlegumesMenu, setShowlegumesMenu)}
         >
-          <h2 className="text-md font-bold text-gray-600 sm:text-lg">Legumes</h2>
+          <h2 className="text-md font-bold text-gray-600 sm:text-lg">
+            Legumes
+          </h2>
           {showlegumesMenu ? (
             <ChevronDoubleUpIcon className="h-4 text-red-500" />
           ) : (
@@ -171,7 +174,7 @@ export default function VerticalMenuBar() {
       </div>
 
       <div className="border-b-2">
-      <div
+        <div
           className="flex justify-between cursor-pointer items-center"
           onClick={() => toggleMenu(showfruitsMenu, setShowfruitsMenu)}
         >

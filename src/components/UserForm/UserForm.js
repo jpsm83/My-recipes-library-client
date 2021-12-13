@@ -7,6 +7,7 @@ export default function RecipeForm(props) {
     errors,
     fields,
     signup,
+    editUser,
     isValid,
     buttonType,
     goBack,
@@ -16,7 +17,7 @@ export default function RecipeForm(props) {
     <div className="m-6">
       <div className="flex mx-auto flex-col shadow-2xl rounded-lg max-w-5xl p-3 sm:p-6">
         <form className="space-y-4" onSubmit={(event) => handleSubmit(event)}>
-          {signup && (
+          {(signup || editUser) && (
             <div className="flex flex-col">
               <label className="labels" htmlFor="username">
                 Username:
