@@ -1,8 +1,9 @@
 import React from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import RecipeService from "../../services/recipe.service";
+import { withAuth } from "../../context/auth.context";
 
-class RecipesFeed extends React.Component {
+class MyCreationsFeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,38 +15,32 @@ class RecipesFeed extends React.Component {
   }
 
   componentDidMount() {
+    // get the user in seccion with withAuth user.id
     this.recipeService
       .get()
       .then((res) => {
+        console.log(res);
         this.setState({ recipes: res.data });
       })
       .catch((err) => console.error(err));
   }
 
-  
   //never update state inside render (setState), it causes infinity loop
   displayRecipes() {
     return this.state.recipes.map((recipe) => {
-      // spreed operator replace name/value from recipe - it is a shortcut
-      return (
-        <RecipeCard key={recipe.id} {...recipe} />
-      );
+      if (recipe.chef === this.props.user.id) {
+        return <RecipeCard key={recipe.id} {...recipe} />;
+      }
     });
   }
 
   render() {
     return (
-      <div className="flex flex-wrap justify-between p-1.5">
-        {this.state.recipes.length === 0 ? (
-          <p className="text-lg font-bold">
-            Lets get dirt, start to cook and create your first Recipe
-          </p>
-        ) : (
-          this.displayRecipes()
-        )}
-      </div>
-    );
+        <div className="flex flex-wrap justify-between p-1.5">
+        {this.displayRecipes()}
+    </div>
+    )
   }
 }
 
-export default RecipesFeed;
+export default withAuth(MyCreationsFeed);

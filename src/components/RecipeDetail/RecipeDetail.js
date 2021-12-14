@@ -1,6 +1,6 @@
 import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, useHistory } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
 import { withAuth } from "../../context/auth.context";
 
@@ -20,6 +20,9 @@ function RecipeDetail({
 }) {
   const recipeService = new RecipeService();
 
+  // using history hook to push to another page
+  const history = useHistory()
+
   const recipeOwner = () => {
     if(user && user.id === chef){
       return true
@@ -31,7 +34,8 @@ function RecipeDetail({
       .deleteOne(id)
       .then(() => {
         // you need export the component withRouter to be able to use history.push
-        this.props.history.push("/");
+        // using history hook to push to another page
+        history.push("/");
       })
       .catch((err) => console.error(err));
   };

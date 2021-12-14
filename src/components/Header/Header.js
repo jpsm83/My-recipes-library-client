@@ -43,7 +43,7 @@ function Header(props) {
               </div>
             </Link>
 
-            <Link to="/my-creations">
+            <Link to="/my-own-creations">
               <div className="cursor-pointer text-center">
                 <p className="font-bold">My own</p>
                 <p className="sm:text-sm">Creations</p>

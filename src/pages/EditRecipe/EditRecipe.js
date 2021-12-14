@@ -9,7 +9,6 @@ class EditRecipe extends React.Component {
     super(props);
     this.state = {
       fields: {
-        id: "",
         dishName: "",
         cousine: "",
         type: "",
@@ -47,11 +46,12 @@ class EditRecipe extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const id = this.props.match.params.id;
+    // upload data is not getting the new data
+    const uploadData = this.state.fields;
+    console.log(id, uploadData);
+
     if (this.isValid()) {
-      // diferent ways to get the id
-      // const id = this.props.match.params.id;
-      const id = this.state.fields.id;
-      const uploadData = this.state.fields;
       this.recipeService
         .updateOne(id, uploadData)
         .then(() => {
@@ -81,8 +81,10 @@ class EditRecipe extends React.Component {
   }
 
   goBack() {
+    const id = this.props.match.params.id;
+
     // you need export the component withRouter to be able to use history.push
-    this.props.history.push("/recipe/" + this.state.id);
+    this.props.history.push("/recipe/" + id);
   }
 
   render() {
