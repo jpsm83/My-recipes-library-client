@@ -8,7 +8,7 @@ export default function RecipesCard({
   image,
   prepTime,
   servings,
-  user,
+  chef,
 }) {
   return (
     <div className="flex flex-grow shadow-lg flex-col m-1.5 rounded-lg w-60 hover:shadow-2xl hover:scale-105 transition transform duration-200 ease-out">
@@ -36,7 +36,7 @@ export default function RecipesCard({
         </button>
       </div>
       <p className="text-xs sm:text-md text-center mb-2 text-gray-500 border-t-2">
-        Create by {user}
+        Create by {chef}
       </p>
     </div>
   );

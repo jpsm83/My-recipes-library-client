@@ -31,7 +31,7 @@ class RecipesFeed extends React.Component {
     return this.state.recipes.map((recipe) => {
       // spreed operator replace name/value from recipe - it is a shortcut
       return (
-        <RecipeCard {...recipe} refreshState={() => this.refreshState()} />
+        <RecipeCard key={recipe.id} {...recipe} refreshState={() => this.refreshState()} />
       );
     });
   }

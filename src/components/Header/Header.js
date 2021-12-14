@@ -70,8 +70,12 @@ function Header(props) {
           <div className="text-gray-200 flex items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
             <Link to="/login">
               <div className="cursor-pointer">
-                <p className="font-bold">SignIn</p>
-                <p className="sm:text-sm">LogIn</p>
+                <Link to="/login">
+                  <p className="font-bold">LogIn</p>
+                </Link>
+                <Link to="/signup">
+                  <p className="sm:text-sm">SignIn</p>
+                </Link>
               </div>
             </Link>
           </div>

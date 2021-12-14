@@ -35,6 +35,24 @@ export default function RecipeForm(props) {
             </div>
           )}
 
+          {editUser && (
+            <div className="flex flex-col">
+              <label className="labels" htmlFor="photo">
+                Photo:
+              </label>
+              <input
+                className="inputs sm:text-md"
+                type="text"
+                name="photo"
+                value={fields.photo}
+                onChange={(event) => handleChange(event)}
+              />
+              {errors.photo && (
+                <p className="errorInputs sm:text-md">{errors.photo}</p>
+              )}
+            </div>
+          )}
+
           <div className="flex flex-col">
             <label className="labels" htmlFor="email">
               Email:

@@ -2,6 +2,7 @@ import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
+import { withAuth } from "../../context/auth.context";
 
 //all the props comes from props.match.params.id
 function RecipeDetail({
@@ -16,6 +17,7 @@ function RecipeDetail({
   prepTime,
   preparation,
   howToCook,
+  isLoggedIn
 }) {
   const recipeService = new RecipeService();
 
@@ -84,6 +86,7 @@ function RecipeDetail({
       </div>
 
       <div className="flex space-x-6 justify-center mb-6 mt-4">
+      {isLoggedIn && <div>
         <Link to={`/edit-recipe/${id}`}>
           <button className="typesCousine text-white bg-green-800">Edit</button>
         </Link>
@@ -95,6 +98,8 @@ function RecipeDetail({
             Delete
           </button>
         </Link>
+        </div>
+      }
         <Link to={`/`}>
           <button className="typesCousine text-white bg-yellow-600">
             Recipes
@@ -105,4 +110,4 @@ function RecipeDetail({
   );
 }
 
-export default withRouter(RecipeDetail);
+export default withAuth(withRouter(RecipeDetail));

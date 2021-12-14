@@ -85,6 +85,14 @@ const userValidators = {
     return message;
   },
 
+  photo: (value) => {
+    let message;
+    if (value.length > 300) {
+      message = "300 characters maximun";
+    }
+    return message;
+  },
+
   email: (value) => {
     let message;
     if (!value) {
@@ -99,6 +107,8 @@ const userValidators = {
     let message;
     if (!value) {
       message = "Password is required";
+    } else if(value.length < 5){
+      message = "5 characters minimun"
     }
     return message;
   },

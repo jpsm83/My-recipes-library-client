@@ -12,6 +12,7 @@ class EditUser extends React.Component {
         username: "",
         email: "",
         password: "",
+        photo: "",
       },
       buttonType: "Update User",
       editUser: true,
@@ -19,8 +20,13 @@ class EditUser extends React.Component {
         username: null,
         email: null,
         password: null,
+        photo: null,
       },
     };
+  }
+
+  componentDidMount(){
+    this.setState({ fields: this.props.user })
   }
 
   handleSubmit(event) {
@@ -29,6 +35,7 @@ class EditUser extends React.Component {
       // diferent ways to get the id
       // const id = this.props.match.params.id;
       this.props.edit(this.state.fields);
+      this.goBack();
     }
   }
 
