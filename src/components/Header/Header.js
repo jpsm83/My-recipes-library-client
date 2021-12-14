@@ -88,7 +88,7 @@ function Header(props) {
         <p className="typesCousine">Chinese</p>
         <p className="typesCousine">Thay</p>
         <p className="typesCousine">Italian</p>
-        <p className="typesCousine">Espanish</p>
+        <p className="typesCousine">Spanish</p>
         <p className="typesCousine">Brazilian</p>
         <p className="typesCousine">Japanese</p>
         <p className="typesCousine">Turkish</p>
