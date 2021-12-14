@@ -4,12 +4,11 @@ import { Link, withRouter } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
 import { withAuth } from "../../context/auth.context";
 
-//all the props comes from props.match.params.id
 function RecipeDetail({
   id,
   dishName,
   cousine,
-  user,
+  chef,
   servings,
   type,
   image,
@@ -17,9 +16,15 @@ function RecipeDetail({
   prepTime,
   preparation,
   howToCook,
-  isLoggedIn
+  user,
 }) {
   const recipeService = new RecipeService();
+
+  const recipeOwner = () => {
+    if(user && user.id === chef){
+      return true
+    }
+  }
 
   const deleteRecipe = () => {
     recipeService
@@ -43,7 +48,7 @@ function RecipeDetail({
             {dishName}
           </p>
           <button className="flex text-sm sm:text-md text-blue-700 justify-end">
-            Create by {user}
+            Create by {chef}
           </button>
           <li className="text-sm sm:text-md text-gray-700 font-bold">{type}</li>
           <li className="text-sm sm:text-md text-gray-700 font-bold">
@@ -86,20 +91,23 @@ function RecipeDetail({
       </div>
 
       <div className="flex space-x-6 justify-center mb-6 mt-4">
-      {isLoggedIn && <div>
-        <Link to={`/edit-recipe/${id}`}>
-          <button className="typesCousine text-white bg-green-800">Edit</button>
-        </Link>
-        <Link to="/">
-          <button
-            className="typesCousine text-white bg-red-800"
-            onClick={() => deleteRecipe()}
-          >
-            Delete
-          </button>
-        </Link>
-        </div>
-      }
+        {recipeOwner() && (
+          <div className="flex space-x-6">
+            <Link to={`/edit-recipe/${id}`}>
+              <button className="typesCousine text-white bg-green-800">
+                Edit
+              </button>
+            </Link>
+            <Link to="/">
+              <button
+                className="typesCousine text-white bg-red-800"
+                onClick={() => deleteRecipe()}
+              >
+                Delete
+              </button>
+            </Link>
+          </div>
+        )}
         <Link to={`/`}>
           <button className="typesCousine text-white bg-yellow-600">
             Recipes

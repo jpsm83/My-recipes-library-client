@@ -55,8 +55,7 @@ class EditRecipe extends React.Component {
       this.recipeService
         .updateOne(id, uploadData)
         .then(() => {
-          // you need export the component withRouter to be able to use history.push
-          this.props.history.push("/recipe/" + id);
+          this.goBack();
         })
         .catch((err) => console.log(err));
     }
@@ -82,10 +81,8 @@ class EditRecipe extends React.Component {
   }
 
   goBack() {
-    // diferent ways to get the id
-    // const id = this.props.match.params.id;
-    const id = this.state.fields.id;
-    this.props.history.push("/recipe/" + id);
+    // you need export the component withRouter to be able to use history.push
+    this.props.history.push("/recipe/" + this.state.id);
   }
 
   render() {
