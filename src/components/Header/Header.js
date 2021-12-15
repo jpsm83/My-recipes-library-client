@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SearchIcon } from "@heroicons/react/outline";
 import { withAuth } from "../../context/auth.context";
 
 function Header(props) {
@@ -24,13 +23,24 @@ function Header(props) {
         </div>
 
         {/* search */}
-        <div className="bg-yellow-400 hover:bg-yellow-500 hidden flex-grow mx-10 max-w-lg sm:flex items-center h-10 rounded-lg cursor-pointer">
-          <input
-            className="p-2 h-full w-6 flex-grow rounded-l-lg flex-shrink focus:outline-none px-4"
-            type="text"
-            placeholder="Dish Name"
+        <div className="hidden flex-grow max-w-lg sm:flex justify-center h-10 text-gray-300">
+          <div className="cursor-pointer text-center">
+            <Link to="/my-own-creations">
+              <p className="font-bold mr-1">Backend</p>
+            </Link>
+            <p className="sm:text-sm">Code</p>
+          </div>
+          <img
+            src="./img/github.webp"
+            alt="Food logo"
+            className="w-12 flex-shrink-0 mx-2 hidden md:flex"
           />
-          <SearchIcon className="h-12 p-4" />
+          <div className="cursor-pointer text-center">
+            <Link to="/my-own-creations">
+              <p className="font-bold ml-1">Frontend</p>
+            </Link>
+            <p className="sm:text-sm">Code</p>
+          </div>
         </div>
 
         {/* right elements */}
