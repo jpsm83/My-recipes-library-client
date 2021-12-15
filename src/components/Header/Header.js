@@ -25,9 +25,9 @@ function Header(props) {
         {/* search */}
         <div className="hidden flex-grow max-w-lg sm:flex justify-center h-10 text-gray-300">
           <div className="cursor-pointer text-center">
-            <Link to="/my-own-creations">
+            <a href="https://github.com/jpsm83/my-recipes-library-server" target="blank">
               <p className="font-bold mr-1">Backend</p>
-            </Link>
+            </a>
             <p className="sm:text-sm">Code</p>
           </div>
           <img
@@ -36,9 +36,9 @@ function Header(props) {
             className="w-12 flex-shrink-0 mx-2 hidden md:flex"
           />
           <div className="cursor-pointer text-center">
-            <Link to="/my-own-creations">
+            <a href="https://github.com/jpsm83/my-recipes-library-client" target="blank">
               <p className="font-bold ml-1">Frontend</p>
-            </Link>
+            </a>
             <p className="sm:text-sm">Code</p>
           </div>
         </div>
