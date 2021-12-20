@@ -22,10 +22,13 @@ function Header(props) {
           </Link>
         </div>
 
-        {/* search */}
+        {/* center elements */}
         <div className="hidden flex-grow max-w-lg sm:flex justify-center h-10 text-gray-300">
           <div className="cursor-pointer text-center">
-            <a href="https://github.com/jpsm83/my-recipes-library-server" target="blank">
+            <a
+              href="https://github.com/jpsm83/my-recipes-library-server"
+              target="blank"
+            >
               <p className="font-bold mr-1">Backend</p>
             </a>
             <p className="sm:text-sm">Code</p>
@@ -36,7 +39,10 @@ function Header(props) {
             className="w-12 flex-shrink-0 mx-2 hidden md:flex"
           />
           <div className="cursor-pointer text-center">
-            <a href="https://github.com/jpsm83/my-recipes-library-client" target="blank">
+            <a
+              href="https://github.com/jpsm83/my-recipes-library-client"
+              target="blank"
+            >
               <p className="font-bold ml-1">Frontend</p>
             </a>
             <p className="sm:text-sm">Code</p>
@@ -96,7 +102,7 @@ function Header(props) {
       <div className="flex justify-between items-center overflow-scroll scrollbar-hide space-x-3 pl-2 py-2 bg-red-700 text-gray-300 text-xs sm:text-sm flex-grow">
         <p className="typesCousine">American</p>
         <p className="typesCousine">Chinese</p>
-        <p className="typesCousine">Thay</p>
+        <p className="typesCousine">Thai</p>
         <p className="typesCousine">Italian</p>
         <p className="typesCousine">Spanish</p>
         <p className="typesCousine">Brazilian</p>
