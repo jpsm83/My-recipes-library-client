@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import RecipeService from "../../services/recipe.service";
@@ -20,7 +21,6 @@ class MyCreationsFeed extends React.Component {
     this.recipeService
       .get()
       .then((res) => {
-        console.log(res);
         this.setState({ recipes: res.data });
       })
       .catch((err) => console.error(err));
@@ -37,10 +37,10 @@ class MyCreationsFeed extends React.Component {
 
   render() {
     return (
-        <div className="flex flex-wrap justify-between p-1.5">
+      <div className="flex flex-wrap justify-between p-1.5">
         {this.displayRecipes()}
-    </div>
-    )
+      </div>
+    );
   }
 }
 
