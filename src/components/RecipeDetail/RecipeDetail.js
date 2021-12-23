@@ -1,5 +1,5 @@
-import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
+import { StarIcon } from "@heroicons/react/solid";
 import { Link, withRouter, useHistory } from "react-router-dom";
 import RecipeService from "../../services/recipe.service";
 import { withAuth } from "../../context/auth.context";
@@ -18,16 +18,18 @@ function RecipeDetail({
   howToCook,
   user,
 }) {
+  // connection with RecipeService to be able to use all it services
+  // recipe.service.js is the bridge to connect frontend with backend
   const recipeService = new RecipeService();
 
-  // using history hook to push to another page
-  const history = useHistory()
+  // using history hook to push to another page from the browser history
+  const history = useHistory();
 
   const recipeOwner = () => {
-    if(user && user.id === chef){
-      return true
+    if (user && user.id === chef) {
+      return true;
     }
-  }
+  };
 
   const deleteRecipe = () => {
     recipeService
@@ -112,7 +114,7 @@ function RecipeDetail({
             </Link>
           </div>
         )}
-        <Link to={`/`}>
+        <Link to="/">
           <button className="typesCousine text-white bg-yellow-600">
             Recipes
           </button>
@@ -121,5 +123,8 @@ function RecipeDetail({
     </div>
   );
 }
+// withRouter allow us to use history.push
 
+// withAuth comes from context and alow the component to use it
+// methods - isLoading, isLoggedIn, user, signup, login, logout, edit
 export default withAuth(withRouter(RecipeDetail));

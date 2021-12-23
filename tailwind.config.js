@@ -1,3 +1,5 @@
+// tailwind is a utility first css framework
+
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'

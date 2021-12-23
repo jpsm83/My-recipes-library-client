@@ -8,7 +8,7 @@ function PrivateRoute(routeProps) {
   // isLoggedIn & isLoading come from withAuth - (context)
   const { isLoggedIn, isLoading } = routeProps;
 
-  // those props comes from the component PrivateRoute
+  // those props comes from this component PrivateRoute
   const { exact, path } = routeProps;
   const ComponentToShow = routeProps.component;
 

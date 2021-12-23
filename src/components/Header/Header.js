@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../../context/auth.context";
 
 function Header(props) {
+  // user and logout come from context/auth.context.js
+  // it can be use in any component because it is exported as AuthProvider
+  // and wrap all the aplication in its root index.js
   const { user, logout } = props;
 
   return (

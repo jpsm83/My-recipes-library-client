@@ -26,6 +26,7 @@ class Signup extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.isValid()) {
+      // props.signup comes from context/auth.context.js - withAuth
       this.props.signup(this.state.fields);
       this.props.history.push("/");
     }
@@ -69,4 +70,6 @@ class Signup extends Component {
   }
 }
 
+// withAuth comes from context and alow the component to use it
+// methods - isLoading, isLoggedIn, user, signup, login, logout, edit
 export default withAuth(withRouter(Signup));

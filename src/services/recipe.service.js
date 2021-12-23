@@ -12,6 +12,7 @@ export default class RecipeService {
     });
   }
 
+  // same methods from backend
   create = (data) => this.instance.post("/", data);
   get = () => this.instance.get("/");
   getOne = (id) => this.instance.get(`/${id}`);

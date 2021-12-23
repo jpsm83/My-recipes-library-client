@@ -25,15 +25,16 @@ class EditUser extends React.Component {
     };
   }
 
+  // componentDidMount is the first method to execute in a component
   componentDidMount(){
+    // props.user comes from context/auth.context.js - withAuth
     this.setState({ fields: this.props.user })
   }
 
   handleSubmit(event) {
     event.preventDefault();
     if (this.isValid()) {
-      // diferent ways to get the id
-      // const id = this.props.match.params.id;
+      // props.edit comes from context/auth.context.js - withAuth
       this.props.edit(this.state.fields);
       this.goBack();
     }
@@ -77,4 +78,6 @@ class EditUser extends React.Component {
   }
 }
 
+// withAuth comes from context and alow the component to use it
+// methods - isLoading, isLoggedIn, user, signup, login, logout, edit
 export default withAuth(withRouter(EditUser));

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const ingredients = [
   "Beet",
   "Pork",
@@ -173,7 +174,6 @@ const createRecipesData = () => {
 }
 
 console.log(createRecipesData())
-// eslint-disable-next-line no-unused-expressions
 
 const recipes = [
                   {

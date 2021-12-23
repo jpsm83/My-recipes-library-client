@@ -12,18 +12,14 @@ class RecipesDetail extends React.Component {
     this.recipeService = new RecipeService();
   }
 
-  //this.props.match.params.id
-  refreshState() {
+  // componentDidMount is the first method to execute in a component
+  componentDidMount() {
     this.recipeService
       .getOne(this.props.match.params.id)
       .then((res) => {
         this.setState({ recipe: res.data });
       })
       .catch((err) => console.error(err));
-  }
-
-  componentDidMount() {
-    this.refreshState();
   }
 
   render() {

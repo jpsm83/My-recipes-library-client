@@ -14,6 +14,7 @@ class MyCreationsFeed extends React.Component {
     this.recipeService = new RecipeService();
   }
 
+  // componentDidMount is the first method to execute in a component
   componentDidMount() {
     // get the user in seccion with withAuth user.id
     this.recipeService
@@ -43,4 +44,6 @@ class MyCreationsFeed extends React.Component {
   }
 }
 
+// withAuth comes from context and alow the component to use it
+// methods - isLoading, isLoggedIn, user, signup, login, logout, edit
 export default withAuth(MyCreationsFeed);

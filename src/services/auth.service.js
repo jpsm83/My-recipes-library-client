@@ -11,6 +11,7 @@ export default class AuthService {
     });
   }
 
+  // same methods from backend
   signup = (data) => this.instance.post("/signup", data);
   login = (data) => this.instance.post("/login", data);
   logout = () => this.instance.post("/logout");

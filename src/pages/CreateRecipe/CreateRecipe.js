@@ -41,7 +41,7 @@ class CreateRecipe extends Component {
     if (this.isValid()) {
       this.recipeService
         .create(this.state.fields)
-        .then(() => {})
+        .then(() => console.log(this.state.fields.dishName, "created"))
         .catch((err) => console.log(err));
       this.props.history.push("/");
     }
@@ -85,4 +85,6 @@ class CreateRecipe extends Component {
   }
 }
 
+// withAuth comes from context and alow the component to use it
+// methods - isLoading, isLoggedIn, user, signup, login, logout, edit
 export default withRouter(CreateRecipe);

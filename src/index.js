@@ -9,6 +9,9 @@ import { AuthProvider } from "./context/auth.context";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+    {/* AuthProvider comes from context and wrap the application
+    it allows the app to use all its methods in any component-
+    isLoading, isLoggedIn, user, signup, login, logout, edit */}
       <AuthProvider>
         <App />
       </AuthProvider>

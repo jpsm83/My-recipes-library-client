@@ -37,6 +37,7 @@ class EditRecipe extends React.Component {
     this.recipeService = new RecipeService();
   }
 
+  // componentDidMount is the first method to execute in a component
   componentDidMount() {
     const id = this.props.match.params.id;
     this.recipeService.getOne(id).then((res) => {
@@ -47,9 +48,7 @@ class EditRecipe extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const id = this.props.match.params.id;
-    // upload data is not getting the new data
     const uploadData = this.state.fields;
-    console.log(id, uploadData);
 
     if (this.isValid()) {
       this.recipeService
@@ -102,4 +101,6 @@ class EditRecipe extends React.Component {
   }
 }
 
+// withAuth comes from context and alow the component to use it
+// methods - isLoading, isLoggedIn, user, signup, login, logout, edit
 export default withRouter(EditRecipe);

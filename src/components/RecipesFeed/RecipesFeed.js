@@ -15,6 +15,7 @@ class RecipesFeed extends React.Component {
     this.recipeService = new RecipeService();
   }
 
+  // componentDidMount is the first method to execute in a component
   componentDidMount() {
     this.recipeService
       .get()
