@@ -5,15 +5,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider } from "./context/auth.context";
+import { store } from "../src/app/store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    {/* AuthProvider comes from context and wrap the application
+      {/* AuthProvider comes from context and wrap the application
     it allows the app to use all its methods in any component-
     isLoading, isLoggedIn, user, signup, login, logout, edit */}
       <AuthProvider>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </AuthProvider>
     </Router>
   </React.StrictMode>,

@@ -7,9 +7,9 @@ function Home() {
   return (
     <div>
       <main className="flex max-w-7xl mx-auto mt-3">
-        <div className="hidden sm:block h-auto mb-3">
+        {/* <div className="hidden sm:block h-auto mb-3">
           <VerticalMenuBar />
-        </div>
+        </div> */}
         <div className="flex flex-col w-full">
           <Banner />
           <RecipesFeed />

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../context/auth.context";
+import Filter from "../Filter/Filter";
 
 function Header(props) {
   // user and logout come from context/auth.context.js
@@ -38,8 +39,8 @@ function Header(props) {
           </div>
           <img
             src="./img/github.webp"
-            alt="Food logo"
-            className="w-12 flex-shrink-0 mx-2 hidden md:flex"
+            alt="Github logo"
+            className="w-10 flex-shrink-0 mx-2 hidden md:flex"
           />
           <div className="cursor-pointer text-center">
             <a
@@ -102,17 +103,7 @@ function Header(props) {
       </div>
 
       {/* botton navbar */}
-      <div className="flex justify-between items-center overflow-scroll scrollbar-hide space-x-3 pl-2 py-2 bg-red-700 text-gray-300 text-xs sm:text-sm flex-grow">
-        <p className="typesCousine">American</p>
-        <p className="typesCousine">Chinese</p>
-        <p className="typesCousine">Thai</p>
-        <p className="typesCousine">Italian</p>
-        <p className="typesCousine">Spanish</p>
-        <p className="typesCousine">Brazilian</p>
-        <p className="typesCousine">Japanese</p>
-        <p className="typesCousine">Turkish</p>
-        <p className="typesCousine">Others</p>
-      </div>
+      <Filter />
     </header>
   );
 }
